@@ -28,3 +28,8 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+- Event content (dates, agenda, speakers, tickets, FAQ, venue) lives in `src/lib/event-data.ts`; pages and components read from it so facts stay in one place.
+- Each site section is its own route (`/agenda`, `/palestrantes`, `/local`, `/ingressos`, `/faq`) with shared header/footer in `__root.tsx`; the home page shows teasers linking to them, for SEO and shareable URLs.
+- The venue map uses the Google Maps browser key when linked and falls back to Google's keyless embed, so the map always renders.

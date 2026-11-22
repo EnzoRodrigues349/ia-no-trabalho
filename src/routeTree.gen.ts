@@ -10,33 +10,91 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AgendaRouteImport } from './routes/agenda'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as IngressosRouteImport } from './routes/ingressos'
+import { Route as LocalRouteImport } from './routes/local'
+import { Route as PalestrantesRouteImport } from './routes/palestrantes'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AgendaRoute = AgendaRouteImport.update({
+  id: '/agenda',
+  path: '/agenda',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IngressosRoute = IngressosRouteImport.update({
+  id: '/ingressos',
+  path: '/ingressos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocalRoute = LocalRouteImport.update({
+  id: '/local',
+  path: '/local',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PalestrantesRoute = PalestrantesRouteImport.update({
+  id: '/palestrantes',
+  path: '/palestrantes',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/agenda': typeof AgendaRoute
+  '/faq': typeof FaqRoute
+  '/ingressos': typeof IngressosRoute
+  '/local': typeof LocalRoute
+  '/palestrantes': typeof PalestrantesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/agenda': typeof AgendaRoute
+  '/faq': typeof FaqRoute
+  '/ingressos': typeof IngressosRoute
+  '/local': typeof LocalRoute
+  '/palestrantes': typeof PalestrantesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/agenda': typeof AgendaRoute
+  '/faq': typeof FaqRoute
+  '/ingressos': typeof IngressosRoute
+  '/local': typeof LocalRoute
+  '/palestrantes': typeof PalestrantesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    '/' | '/agenda' | '/faq' | '/ingressos' | '/local' | '/palestrantes'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/agenda' | '/faq' | '/ingressos' | '/local' | '/palestrantes'
+  id:
+    | '__root__'
+    | '/'
+    | '/agenda'
+    | '/faq'
+    | '/ingressos'
+    | '/local'
+    | '/palestrantes'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AgendaRoute: typeof AgendaRoute
+  FaqRoute: typeof FaqRoute
+  IngressosRoute: typeof IngressosRoute
+  LocalRoute: typeof LocalRoute
+  PalestrantesRoute: typeof PalestrantesRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +106,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/agenda': {
+      id: '/agenda'
+      path: '/agenda'
+      fullPath: '/agenda'
+      preLoaderRoute: typeof AgendaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ingressos': {
+      id: '/ingressos'
+      path: '/ingressos'
+      fullPath: '/ingressos'
+      preLoaderRoute: typeof IngressosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/local': {
+      id: '/local'
+      path: '/local'
+      fullPath: '/local'
+      preLoaderRoute: typeof LocalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/palestrantes': {
+      id: '/palestrantes'
+      path: '/palestrantes'
+      fullPath: '/palestrantes'
+      preLoaderRoute: typeof PalestrantesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AgendaRoute: AgendaRoute,
+  FaqRoute: FaqRoute,
+  IngressosRoute: IngressosRoute,
+  LocalRoute: LocalRoute,
+  PalestrantesRoute: PalestrantesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
