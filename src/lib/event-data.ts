@@ -248,15 +248,31 @@ export const AGENDA: EventDay[] = [
 ];
 
 export type Ticket = {
-  id: "especial" | "vip";
+  id: "essencial" | "especial" | "vip";
   name: string;
   price: number;
   description: string;
   includes: string[];
+  excludes?: string[];
   highlight: boolean;
 };
 
 export const TICKETS: Ticket[] = [
+  {
+    id: "essencial",
+    name: "Lote Essencial",
+    price: 290,
+    description:
+      "O essencial para acompanhar os dois dias ao vivo, no auditório, e sair com material para aplicar.",
+    includes: [
+      "Acesso aos 2 dias (26 e 27/10)",
+      "Todas as palestras, painéis e workshops",
+      "Material de apoio e modelos de prompt em PDF",
+      "Certificado digital de participação",
+    ],
+    excludes: ["Coffee breaks nos dois dias", "Acesso às gravações das aulas"],
+    highlight: false,
+  },
   {
     id: "especial",
     name: "Lote Especial",
@@ -280,6 +296,7 @@ export const TICKETS: Ticket[] = [
     includes: [
       "Tudo do Lote Especial",
       "Assentos reservados nas primeiras fileiras",
+      "Coffee breaks nos dois dias",
       "Almoço incluso nos dois dias",
       "Credenciamento expresso e lounge VIP",
       "Meet & greet com os palestrantes",
@@ -299,7 +316,7 @@ export const FAQ: { question: string; answer: string }[] = [
   {
     question: "As palestras serão gravadas?",
     answer:
-      "Sim, todas as palestras e painéis são gravados. Quem tem Lote Especial assiste por 30 dias; quem tem VIP, sem prazo de expiração.",
+      "Sim, todas as palestras e painéis são gravados. O Lote Essencial não dá acesso às gravações. Quem tem Lote Especial assiste por 30 dias; quem tem VIP, sem prazo de expiração.",
   },
   {
     question: "Posso transferir meu ingresso?",
@@ -323,7 +340,7 @@ export const FAQ: { question: string; answer: string }[] = [
   {
     question: "O almoço está incluso?",
     answer:
-      "Está incluso no ingresso VIP. No Lote Especial, há coffee breaks e diversas opções de restaurantes a poucos passos do local.",
+      "Está incluso no ingresso VIP. No Lote Especial, há coffee breaks e diversas opções de restaurantes a poucos passos do local. O Lote Essencial não inclui coffee breaks, mas há restaurantes a poucos passos do auditório.",
   },
   {
     question: "Posso cancelar e pedir reembolso?",

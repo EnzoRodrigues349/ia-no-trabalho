@@ -3,6 +3,28 @@ import { describe, expect, it } from "vitest";
 import { AGENDA, SPEAKERS, TICKETS, VENUE } from "@/lib/event-data";
 
 describe("Event rules", () => {
+  it("prices Lote Essencial at R$ 290", () => {
+    expect(TICKETS.find((t) => t.id === "essencial")?.price).toBe(290);
+  });
+
+  it("gives Lote Essencial no recordings and no coffee breaks", () => {
+    const essencial = TICKETS.find((t) => t.id === "essencial");
+    const included = (essencial?.includes ?? []).join(" ").toLowerCase();
+    const shown = [...(essencial?.includes ?? []), ...(essencial?.excludes ?? [])].join(" ").toLowerCase();
+    expect(included).not.toContain("grava");
+    expect(included).not.toContain("coffee");
+    expect(shown).toContain("grava");
+    expect(shown).toContain("coffee");
+  });
+
+  it("keeps recordings and coffee breaks in the other lots", () => {
+    for (const id of ["especial", "vip"] as const) {
+      const text = (TICKETS.find((t) => t.id === id)?.includes ?? []).join(" ").toLowerCase();
+      expect(text).toContain("grava");
+      expect(text).toContain("coffee");
+    }
+  });
+
   it("prices Lote Especial at R$ 590", () => {
     expect(TICKETS.find((t) => t.id === "especial")?.price).toBe(590);
   });

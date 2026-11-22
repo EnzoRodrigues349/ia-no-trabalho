@@ -1,4 +1,4 @@
-import { Check, Crown, Ticket as TicketIcon } from "lucide-react";
+import { Check, Crown, Ticket as TicketIcon, X } from "lucide-react";
 import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 export function TicketCards() {
   return (
-    <div className="grid gap-6 lg:grid-cols-2">
+    <div className="grid gap-6 lg:grid-cols-3">
       {TICKETS.map((ticket) => {
         const Icon = ticket.highlight ? Crown : TicketIcon;
         return (
@@ -38,6 +38,12 @@ export function TicketCards() {
               {ticket.includes.map((item) => (
                 <li key={item} className="flex gap-3 text-sm">
                   <Check className="mt-0.5 size-4 shrink-0 text-primary-glow" />
+                  {item}
+                </li>
+              ))}
+              {ticket.excludes?.map((item) => (
+                <li key={item} className="flex gap-3 text-sm text-muted-foreground">
+                  <X className="mt-0.5 size-4 shrink-0" />
                   {item}
                 </li>
               ))}
