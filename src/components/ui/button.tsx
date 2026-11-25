@@ -19,8 +19,6 @@ const buttonVariants = cva(
         hero: "bg-brand text-primary-foreground font-semibold shadow-glow hover:brightness-110 hover:-translate-y-0.5 transition-all",
         glass:
           "border border-border bg-foreground/5 text-foreground backdrop-blur hover:bg-foreground/10",
-        sunset:
-          "bg-brand-orange text-brand-orange-foreground font-semibold shadow-orange hover:brightness-110 hover:-translate-y-0.5 transition-all",
       },
       size: {
         default: "h-9 px-4 py-2",

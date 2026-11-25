@@ -30,7 +30,6 @@
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-primary-glow: var(--primary-glow);
-  --color-brand-orange-foreground: var(--brand-orange-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
@@ -73,10 +72,6 @@
   --primary: oklch(0.62 0.27 300);
   --primary-foreground: oklch(0.99 0.005 300);
   --primary-glow: oklch(0.7 0.25 330);
-  /* Warm orange accent that sits opposite the violet on the color wheel. */
-  --brand-orange: oklch(0.76 0.17 62);
-  --brand-orange-foreground: oklch(0.16 0.03 300);
-  --gradient-orange: linear-gradient(120deg, var(--brand-orange) 0%, var(--brand-orange) 55%, var(--primary-glow) 100%);
   --secondary: oklch(0.24 0.06 300);
   --secondary-foreground: oklch(0.97 0.01 300);
   --muted: oklch(0.22 0.04 300);
@@ -112,7 +107,6 @@
   --gradient-card-vip: linear-gradient(160deg, oklch(0.3 0.14 300) 0%, oklch(0.16 0.05 300) 70%);
   --shadow-glow: 0 0 0 1px oklch(0.62 0.27 300 / 0.4), 0 20px 60px -15px oklch(0.62 0.27 300 / 0.55);
   --shadow-soft: 0 20px 50px -25px oklch(0 0 0 / 0.8);
-  --shadow-orange: 0 0 0 1px oklch(0.76 0.17 62 / 0.4), 0 20px 60px -15px oklch(0.76 0.17 62 / 0.5);
 }
 
 @layer base {
@@ -150,10 +144,6 @@
   background-image: var(--gradient-brand);
 }
 
-@utility bg-brand-orange {
-  background-image: var(--gradient-orange);
-}
-
 @utility bg-hero-fade {
   background-image: var(--gradient-hero-fade);
 }
@@ -164,10 +154,6 @@
 
 @utility shadow-glow {
   box-shadow: var(--shadow-glow);
-}
-
-@utility shadow-orange {
-  box-shadow: var(--shadow-orange);
 }
 
 @utility shadow-soft {
