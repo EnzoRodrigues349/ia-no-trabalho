@@ -93,7 +93,7 @@ function Index() {
                 Garanta seu ingresso <ArrowRight />
               </Link>
             </Button>
-            <Button asChild variant="glass" size="xl">
+            <Button asChild variant="sunset" size="xl">
               <Link to="/agenda">Ver agenda completa</Link>
             </Button>
           </div>
