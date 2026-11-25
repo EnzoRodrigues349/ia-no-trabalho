@@ -12,7 +12,7 @@ export const EVENT = {
   tagline: "Inteligência artificial para o seu dia a dia profissional",
   city: "São Paulo",
   datesLabel: "26 e 27 de outubro de 2030",
-  shortDates: "26–27 OUT 2030",
+  shortDates: "26–27 NOV 2026",
   hours: "09h às 17h",
   startsAt: "2030-10-26T09:00:00-03:00",
 } as const;
