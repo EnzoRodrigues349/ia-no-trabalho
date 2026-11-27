@@ -472,6 +472,46 @@ export const PROJECTS: Project[] = [
   },
 ];
 
+export const FEATURED_PROJECT = {
+  id: "projeto-ifood",
+  eyebrow: "Projeto principal",
+  name: "Projeto iFood",
+  tagline: "O app de delivery que vamos construir ao vivo nos dois dias de conferência.",
+  summary:
+    "No palco, do rascunho no papel ao protótipo funcionando: a IA desenha as telas, organiza o cardápio, escreve as mensagens do cliente e cria um assistente que responde a pedidos em segundos. Tudo acompanhado pelo público, passo a passo, sem pressupor que você sabe programar.",
+  highlights: ["Ao vivo no palco", "Do zero ao protótipo", "Aberto a todas as áreas"],
+  video: {
+    id: "o6xh8iFQ--Q",
+    url: "https://www.youtube.com/watch?v=o6xh8iFQ--Q",
+    title: "Projeto Ifood - Engenheiro Android com IA",
+    author: "Codans | Jamilton Damasceno",
+    duration: "11:27",
+    thumbnail: "https://i.ytimg.com/vi/o6xh8iFQ--Q/maxresdefault.jpg",
+  },
+  steps: [
+    {
+      title: "O pedido",
+      text: "Partimos de uma situação real: um cliente quer pedir comida pelo celular e precisa de resposta em segundos.",
+    },
+    {
+      title: "As telas",
+      text: "A IA gera as telas do app e a gente escolhe o que faz sentido para quem vai usar.",
+    },
+    {
+      title: "O cardápio",
+      text: "Produtos, preços e variações entram organizados, sem planilha infinita nem retrabalho.",
+    },
+    {
+      title: "O assistente",
+      text: "Criamos um assistente de IA que entende o pedido, sugere combinações e responde o cliente.",
+    },
+    {
+      title: "No ar",
+      text: "Testamos o fluxo inteiro ao vivo e mostramos o que dá para publicar no mesmo dia.",
+    },
+  ],
+} as const;
+
 export type Testimonial = {
   id: string;
   name: string;

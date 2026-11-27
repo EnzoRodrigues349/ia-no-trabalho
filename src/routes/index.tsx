@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Briefcase, CalendarDays, Clock, MapPin, Sparkles, Wand2, Wrench } from "lucide-react";
 
 import heroStage from "@/assets/hero-stage.jpg";
+import { FeaturedProject } from "@/components/site/featured-project";
 import { Section } from "@/components/site/section";
 import { SpeakerCard } from "@/components/site/speaker-card";
 import { Testimonials } from "@/components/site/testimonials";
@@ -25,6 +26,14 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      {
+        property: "og:image",
+        content: "https://i.ytimg.com/vi/o6xh8iFQ--Q/maxresdefault.jpg",
+      },
+      {
+        name: "twitter:image",
+        content: "https://i.ytimg.com/vi/o6xh8iFQ--Q/maxresdefault.jpg",
+      },
     ],
   }),
   component: Index,
@@ -226,9 +235,24 @@ function Index() {
         </Button>
       </Section>
 
-      {/* Depoimentos */}
+      {/* Projeto principal */}
       <Section
         index="04"
+        label="Projeto principal"
+        tone="grid"
+        title={
+          <>
+            O <span className="text-gradient">Projeto iFood</span> nasce no palco
+          </>
+        }
+        intro="O projeto que a conferência inteira acompanha do começo ao fim, com o vídeo de apresentação em destaque."
+      >
+        <FeaturedProject />
+      </Section>
+
+      {/* Depoimentos */}
+      <Section
+        index="05"
         label="Depoimentos"
         title={
           <>
@@ -242,7 +266,7 @@ function Index() {
 
       {/* Ingressos */}
       <Section
-        index="05"
+        index="06"
         label="Ingressos"
         tone="grid"
         title="Escolha sua experiência"
@@ -256,7 +280,7 @@ function Index() {
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="relative overflow-hidden rounded-3xl border border-primary bg-card-vip p-10 shadow-glow sm:p-14">
             <div className="glow-orb pointer-events-none absolute -right-20 -top-20 size-96" />
-            <p className="relative font-display text-xs uppercase tracking-[0.25em] text-accent">06 · Local</p>
+            <p className="relative font-display text-xs uppercase tracking-[0.25em] text-accent">07 · Local</p>
             <h2 className="relative mt-4 max-w-2xl text-3xl font-semibold sm:text-5xl">{VENUE.name}</h2>
             <p className="relative mt-4 text-lg text-muted-foreground">
               {VENUE.street} · {VENUE.district}
