@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { AGENDA, SPEAKERS, TICKETS, VENUE } from "@/lib/event-data";
+import { AGENDA, PROJECTS, SPEAKERS, TICKETS, VENUE, getSpeaker } from "@/lib/event-data";
 
 describe("Event rules", () => {
   it("prices Lote Essencial at R$ 290", () => {
@@ -51,6 +51,16 @@ describe("Event rules", () => {
 
   it("has 8 speakers", () => {
     expect(SPEAKERS).toHaveLength(8);
+  });
+
+  it("has 8 gallery projects, each tied to a real speaker", () => {
+    expect(PROJECTS).toHaveLength(8);
+    for (const project of PROJECTS) {
+      expect(getSpeaker(project.speaker)).toBeDefined();
+      expect(project.image.length).toBeGreaterThan(0);
+      expect(["sabado", "domingo"]).toContain(project.day);
+    }
+    expect(new Set(PROJECTS.map((p) => p.slug)).size).toBe(PROJECTS.length);
   });
 
   it("is at Alameda Santos, 1123", () => {

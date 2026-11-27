@@ -26,6 +26,7 @@ export function SiteFooter() {
           <p className="font-display text-xs uppercase tracking-[0.2em] text-accent">Navegue</p>
           <Link to="/agenda" className="text-muted-foreground hover:text-foreground">Agenda</Link>
           <Link to="/palestrantes" className="text-muted-foreground hover:text-foreground">Palestrantes</Link>
+          <Link to="/projetos" className="text-muted-foreground hover:text-foreground">Projetos</Link>
           <Link to="/local" className="text-muted-foreground hover:text-foreground">Local</Link>
           <Link to="/ingressos" className="text-muted-foreground hover:text-foreground">Ingressos</Link>
           <Link to="/faq" className="text-muted-foreground hover:text-foreground">FAQ</Link>

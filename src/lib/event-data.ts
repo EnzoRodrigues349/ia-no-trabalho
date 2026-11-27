@@ -6,6 +6,14 @@ import alineSantos from "@/assets/speakers/aline-santos.jpg";
 import brunoTakahashi from "@/assets/speakers/bruno-takahashi.jpg";
 import patriciaNogueira from "@/assets/speakers/patricia-nogueira.jpg";
 import diegoAlmeida from "@/assets/speakers/diego-almeida.jpg";
+import assistenteIa from "@/assets/projects/assistente-ia.jpg";
+import automacaoFluxos from "@/assets/projects/automacao-fluxos.jpg";
+import bibliotecaPrompts from "@/assets/projects/biblioteca-prompts.jpg";
+import planilhasInteligentes from "@/assets/projects/planilhas-inteligentes.jpg";
+import atasAutomaticas from "@/assets/projects/atas-automaticas.jpg";
+import estudioConteudo from "@/assets/projects/estudio-conteudo.jpg";
+import trilhasAprendizado from "@/assets/projects/trilhas-de-aprendizado.jpg";
+import agenteVoz from "@/assets/projects/agente-de-voz.jpg";
 
 export const EVENT = {
   name: "Conferência IA no Trabalho",
@@ -351,6 +359,110 @@ export const FAQ: { question: string; answer: string }[] = [
     question: "O local tem acessibilidade?",
     answer:
       "Sim. O auditório conta com acesso para cadeirantes, elevadores e banheiros adaptados. Avise-nos sobre outras necessidades.",
+  },
+];
+
+export type ProjectFormat = "Workshop" | "Palestra" | "Demonstração";
+
+export type Project = {
+  slug: string;
+  title: string;
+  summary: string;
+  image: string;
+  speaker: string;
+  day: EventDay["id"];
+  format: ProjectFormat;
+  tags: string[];
+};
+
+export const PROJECTS: Project[] = [
+  {
+    slug: "assistente-de-ia-em-60-minutos",
+    title: "Assistente de IA em 60 minutos",
+    summary:
+      "Um assistente personalizado para a sua função, montado ao vivo e levado pronto para o trabalho.",
+    image: assistenteIa,
+    speaker: "patricia-nogueira",
+    day: "domingo",
+    format: "Workshop",
+    tags: ["No-code", "Produtividade"],
+  },
+  {
+    slug: "biblioteca-de-prompts",
+    title: "Biblioteca de prompts por área",
+    summary:
+      "Modelos de prompt testados para e-mail, relatórios e apresentações, organizados por área de negócio.",
+    image: bibliotecaPrompts,
+    speaker: "rafael-oliveira",
+    day: "sabado",
+    format: "Workshop",
+    tags: ["Engenharia de prompt", "Documentos"],
+  },
+  {
+    slug: "fluxos-automaticos",
+    title: "Fluxos automáticos entre ferramentas",
+    summary:
+      "IA conectando e-mail, planilha e CRM: as tarefas repetitivas rodam sozinhas, sem uma linha de código.",
+    image: automacaoFluxos,
+    speaker: "carlos-mendes",
+    day: "domingo",
+    format: "Demonstração",
+    tags: ["Automação", "Integrações"],
+  },
+  {
+    slug: "painel-de-adocao-de-ia",
+    title: "Painel de adoção de IA",
+    summary:
+      "Um painel simples para ver quais áreas já usam IA, quanto tempo economizam e onde ainda falta apoio.",
+    image: planilhasInteligentes,
+    speaker: "juliana-ferreira",
+    day: "sabado",
+    format: "Palestra",
+    tags: ["Gestão", "Métricas"],
+  },
+  {
+    slug: "atas-e-resumos-de-reuniao",
+    title: "Atas e resumos de reunião",
+    summary:
+      "A gravação da reunião vira ata, decisões e lista de tarefas em minutos, pronta para enviar ao time.",
+    image: atasAutomaticas,
+    speaker: "bruno-takahashi",
+    day: "domingo",
+    format: "Workshop",
+    tags: ["Reuniões", "Documentos"],
+  },
+  {
+    slug: "estudio-de-conteudo",
+    title: "Estúdio de conteúdo com a cara da marca",
+    summary:
+      "Textos, imagens e ideias de campanha mantendo o tom de voz da marca, com revisão humana em cada etapa.",
+    image: estudioConteudo,
+    speaker: "mariana-costa",
+    day: "sabado",
+    format: "Palestra",
+    tags: ["Marketing", "Conteúdo"],
+  },
+  {
+    slug: "trilhas-de-aprendizado",
+    title: "Trilhas de aprendizado com IA",
+    summary:
+      "Um curso interno que se adapta ao ritmo de cada pessoa, com prática, correção e certificado automáticos.",
+    image: trilhasAprendizado,
+    speaker: "diego-almeida",
+    day: "domingo",
+    format: "Palestra",
+    tags: ["Educação", "Treinamento"],
+  },
+  {
+    slug: "agente-de-voz",
+    title: "Agente de voz para o dia a dia",
+    summary:
+      "Como a IA entende e fala: um agente de voz que anota recados, agenda reuniões e responde dúvidas frequentes.",
+    image: agenteVoz,
+    speaker: "aline-santos",
+    day: "sabado",
+    format: "Demonstração",
+    tags: ["Voz", "IA generativa"],
   },
 ];
 

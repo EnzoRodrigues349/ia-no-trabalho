@@ -15,6 +15,7 @@ import { Route as FaqRouteImport } from './routes/faq'
 import { Route as IngressosRouteImport } from './routes/ingressos'
 import { Route as LocalRouteImport } from './routes/local'
 import { Route as PalestrantesRouteImport } from './routes/palestrantes'
+import { Route as ProjetosRouteImport } from './routes/projetos'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -46,6 +47,11 @@ const PalestrantesRoute = PalestrantesRouteImport.update({
   path: '/palestrantes',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProjetosRoute = ProjetosRouteImport.update({
+  id: '/projetos',
+  path: '/projetos',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -54,6 +60,7 @@ export interface FileRoutesByFullPath {
   '/ingressos': typeof IngressosRoute
   '/local': typeof LocalRoute
   '/palestrantes': typeof PalestrantesRoute
+  '/projetos': typeof ProjetosRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -62,6 +69,7 @@ export interface FileRoutesByTo {
   '/ingressos': typeof IngressosRoute
   '/local': typeof LocalRoute
   '/palestrantes': typeof PalestrantesRoute
+  '/projetos': typeof ProjetosRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -71,13 +79,27 @@ export interface FileRoutesById {
   '/ingressos': typeof IngressosRoute
   '/local': typeof LocalRoute
   '/palestrantes': typeof PalestrantesRoute
+  '/projetos': typeof ProjetosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/agenda' | '/faq' | '/ingressos' | '/local' | '/palestrantes'
+    | '/'
+    | '/agenda'
+    | '/faq'
+    | '/ingressos'
+    | '/local'
+    | '/palestrantes'
+    | '/projetos'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/agenda' | '/faq' | '/ingressos' | '/local' | '/palestrantes'
+  to:
+    | '/'
+    | '/agenda'
+    | '/faq'
+    | '/ingressos'
+    | '/local'
+    | '/palestrantes'
+    | '/projetos'
   id:
     | '__root__'
     | '/'
@@ -86,6 +108,7 @@ export interface FileRouteTypes {
     | '/ingressos'
     | '/local'
     | '/palestrantes'
+    | '/projetos'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -95,6 +118,7 @@ export interface RootRouteChildren {
   IngressosRoute: typeof IngressosRoute
   LocalRoute: typeof LocalRoute
   PalestrantesRoute: typeof PalestrantesRoute
+  ProjetosRoute: typeof ProjetosRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -141,6 +165,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PalestrantesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/projetos': {
+      id: '/projetos'
+      path: '/projetos'
+      fullPath: '/projetos'
+      preLoaderRoute: typeof ProjetosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -151,6 +182,7 @@ const rootRouteChildren: RootRouteChildren = {
   IngressosRoute: IngressosRoute,
   LocalRoute: LocalRoute,
   PalestrantesRoute: PalestrantesRoute,
+  ProjetosRoute: ProjetosRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
