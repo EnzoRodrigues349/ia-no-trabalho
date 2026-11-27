@@ -4,9 +4,10 @@ import { ArrowRight, Briefcase, CalendarDays, Clock, MapPin, Sparkles, Wand2, Wr
 import heroStage from "@/assets/hero-stage.jpg";
 import { Section } from "@/components/site/section";
 import { SpeakerCard } from "@/components/site/speaker-card";
+import { Testimonials } from "@/components/site/testimonials";
 import { TicketCards } from "@/components/site/ticket-cards";
 import { Button } from "@/components/ui/button";
-import { AGENDA, EVENT, SPEAKERS, VENUE } from "@/lib/event-data";
+import { AGENDA, EVENT, SPEAKERS, VENUE, averageTestimonialRating, formatRating } from "@/lib/event-data";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -225,9 +226,23 @@ function Index() {
         </Button>
       </Section>
 
-      {/* Ingressos */}
+      {/* Depoimentos */}
       <Section
         index="04"
+        label="Depoimentos"
+        title={
+          <>
+            Quem já foi <span className="text-gradient">recomenda</span>
+          </>
+        }
+        intro={`Notas dadas por quem participou da edição anterior. Média de ${formatRating(averageTestimonialRating())} de 5.`}
+      >
+        <Testimonials />
+      </Section>
+
+      {/* Ingressos */}
+      <Section
+        index="05"
         label="Ingressos"
         tone="grid"
         title="Escolha sua experiência"
@@ -241,7 +256,7 @@ function Index() {
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="relative overflow-hidden rounded-3xl border border-primary bg-card-vip p-10 shadow-glow sm:p-14">
             <div className="glow-orb pointer-events-none absolute -right-20 -top-20 size-96" />
-            <p className="relative font-display text-xs uppercase tracking-[0.25em] text-accent">05 · Local</p>
+            <p className="relative font-display text-xs uppercase tracking-[0.25em] text-accent">06 · Local</p>
             <h2 className="relative mt-4 max-w-2xl text-3xl font-semibold sm:text-5xl">{VENUE.name}</h2>
             <p className="relative mt-4 text-lg text-muted-foreground">
               {VENUE.street} · {VENUE.district}

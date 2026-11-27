@@ -14,6 +14,12 @@ import atasAutomaticas from "@/assets/projects/atas-automaticas.jpg";
 import estudioConteudo from "@/assets/projects/estudio-conteudo.jpg";
 import trilhasAprendizado from "@/assets/projects/trilhas-de-aprendizado.jpg";
 import agenteVoz from "@/assets/projects/agente-de-voz.jpg";
+import alineNogueira from "@/assets/testimonials/aline-nogueira.jpg";
+import camilaRocha from "@/assets/testimonials/camila-rocha.jpg";
+import diegoMatos from "@/assets/testimonials/diego-matos.jpg";
+import marinaDuarte from "@/assets/testimonials/marina-duarte.jpg";
+import rafaelBittencourt from "@/assets/testimonials/rafael-bittencourt.jpg";
+import thiagoPeixoto from "@/assets/testimonials/thiago-peixoto.jpg";
 
 export const EVENT = {
   name: "Conferência IA no Trabalho",
@@ -465,6 +471,92 @@ export const PROJECTS: Project[] = [
     tags: ["Voz", "IA generativa"],
   },
 ];
+
+export type Testimonial = {
+  id: string;
+  name: string;
+  role: string;
+  company: string;
+  quote: string;
+  /** Nota dada pelo participante, de 0 a 5 (aceita meia estrela). */
+  rating: number;
+  photo: string;
+};
+
+export const TESTIMONIALS: Testimonial[] = [
+  {
+    id: "marina-duarte",
+    name: "Marina Duarte",
+    role: "Analista de Marketing",
+    company: "Grupo Vetor",
+    quote:
+      "Eu levava duas horas para escrever um e-mail de campanha. Hoje escrevo em vinte minutos e ainda sobra tempo para revisar a estratégia. O workshop de prompt mudou minha rotina na segunda-feira seguinte.",
+    rating: 5,
+    photo: marinaDuarte,
+  },
+  {
+    id: "thiago-peixoto",
+    name: "Thiago Peixoto",
+    role: "Gerente Comercial",
+    company: "Norte Seguros",
+    quote:
+      "Levei a equipe inteira e foi a melhor decisão do ano. Saí de lá com um roteiro de atendimento pronto para usar, não com slides de teoria que ninguém aplica.",
+    rating: 4.5,
+    photo: thiagoPeixoto,
+  },
+  {
+    id: "camila-rocha",
+    name: "Camila Rocha",
+    role: "Analista de RH",
+    company: "Instituto Aurora",
+    quote:
+      "Trabalho com gente, não com código. Foi a primeira vez que um evento de inteligência artificial falou a minha língua do começo ao fim.",
+    rating: 5,
+    photo: camilaRocha,
+  },
+  {
+    id: "rafael-bittencourt",
+    name: "Rafael Bittencourt",
+    role: "Advogado Tributário",
+    company: "Bittencourt & Almeida",
+    quote:
+      "Confesso que fui cético. Voltei usando IA para resumir jurisprudência e revisar petições. Só faltou mais tempo de workshop prático.",
+    rating: 4,
+    photo: rafaelBittencourt,
+  },
+  {
+    id: "aline-nogueira",
+    name: "Aline Nogueira",
+    role: "Professora de Comunicação",
+    company: "Faculdade Horizonte",
+    quote:
+      "Adaptei três dinâmicas de aula no mesmo fim de semana. Meus alunos acharam que eu tinha feito um curso inteiro de um semestre.",
+    rating: 5,
+    photo: alineNogueira,
+  },
+  {
+    id: "diego-matos",
+    name: "Diego Matos",
+    role: "Analista Financeiro",
+    company: "Órbita Log",
+    quote:
+      "A sessão de planilhas inteligentes paga o ingresso sozinho. Fechei o fechamento mensal em metade do tempo e sem erro de digitação.",
+    rating: 4.5,
+    photo: diegoMatos,
+  },
+];
+
+export function averageTestimonialRating(): number {
+  if (TESTIMONIALS.length === 0) return 0;
+  return TESTIMONIALS.reduce((sum, t) => sum + t.rating, 0) / TESTIMONIALS.length;
+}
+
+export function formatRating(value: number): string {
+  return new Intl.NumberFormat("pt-BR", {
+    minimumFractionDigits: 1,
+    maximumFractionDigits: 1,
+  }).format(value);
+}
 
 export function getSpeaker(slug: string): Speaker | undefined {
   return SPEAKERS.find((s) => s.slug === slug);

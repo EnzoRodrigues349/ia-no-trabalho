@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { AGENDA, PROJECTS, SPEAKERS, TICKETS, VENUE, getSpeaker } from "@/lib/event-data";
+import { AGENDA, PROJECTS, SPEAKERS, TESTIMONIALS, TICKETS, VENUE, averageTestimonialRating, getSpeaker } from "@/lib/event-data";
 
 describe("Event rules", () => {
   it("prices Lote Essencial at R$ 290", () => {
@@ -65,5 +65,26 @@ describe("Event rules", () => {
 
   it("is at Alameda Santos, 1123", () => {
     expect(VENUE.street).toBe("Alameda Santos, 1123");
+  });
+
+  it("has at least 6 testimonials, each with photo, name, profession and a rating out of 5", () => {
+    expect(TESTIMONIALS.length).toBeGreaterThanOrEqual(6);
+    for (const t of TESTIMONIALS) {
+      expect(t.name.length).toBeGreaterThan(0);
+      expect(t.role.length).toBeGreaterThan(0);
+      expect(t.company.length).toBeGreaterThan(0);
+      expect(t.quote.length).toBeGreaterThan(0);
+      expect(t.photo.length).toBeGreaterThan(0);
+      expect(t.rating).toBeGreaterThan(0);
+      expect(t.rating).toBeLessThanOrEqual(5);
+    }
+    expect(new Set(TESTIMONIALS.map((t) => t.id)).size).toBe(TESTIMONIALS.length);
+  });
+
+  it("averages the testimonial ratings out of 5", () => {
+    const expected = TESTIMONIALS.reduce((sum, t) => sum + t.rating, 0) / TESTIMONIALS.length;
+    expect(averageTestimonialRating()).toBeCloseTo(expected, 10);
+    expect(averageTestimonialRating()).toBeGreaterThanOrEqual(4);
+    expect(averageTestimonialRating()).toBeLessThanOrEqual(5);
   });
 });
